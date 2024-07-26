@@ -1,0 +1,19 @@
+{
+  "name": "jaseem-summer-school",
+  "version": "1.0.0",
+  "description": "TDL summer school 2024 cypress project",
+  "main": "comments.js",
+  "scripts": {
+    "format": "npx prettier . --write"
+  },
+  "keywords": [
+    "cypress",
+    "javascript"
+  ],
+  "author": "jaseem",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.13.1",
+    "prettier": "^3.3.3"
+  }
+}
