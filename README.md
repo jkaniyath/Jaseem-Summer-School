@@ -5,5 +5,5 @@
 
 ### Code formatting
 
-This project uses 'prettier' package to format the code. Run the following command to format all files: 
+This project uses 'prettier' package to format code. Run the following command to format all files: 
 "npx prettier . --write" 
