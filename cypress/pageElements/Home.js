@@ -1,7 +1,7 @@
 class HomePage {
   elements = {
     prodList: () => cy.getByTestId("product-wrapper"),
-    storeExclenece: () => cy.getByTestId("nav-store-link"),
+    storeExcellence: () => cy.getByTestId("nav-store-link"),
   };
 }
 
