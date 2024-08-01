@@ -72,8 +72,8 @@ class Cart {
   }
 
   applyAndValidateDiscount(discountCode) {
-    let amountBeforeDiscount = 0;
-    let amountAfterDiscount = 0;
+    let amountBeforeDiscount = 0; // TODO: you can just define variable with just 'let amountBeforeDiscount;'
+    let amountAfterDiscount = 0; // TODO: you can just define variable with just 'let amountAfterDiscount;'
     const discountPercentage = 0.1;
 
     // If a discount is already applied, remove it
