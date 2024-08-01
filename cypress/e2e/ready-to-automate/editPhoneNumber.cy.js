@@ -21,7 +21,7 @@ describe('Test case for dashboard phone edit button', () => {
     Global.elements.profilePageWrapper().should('be.visible')
     
     // Update phone number
-    Global.updatePhoneNumber('12345')
+    Global.updatePhoneNumber('12345') // TODO: is this really Global function? looks like only used in Profile page
    
 
     });
