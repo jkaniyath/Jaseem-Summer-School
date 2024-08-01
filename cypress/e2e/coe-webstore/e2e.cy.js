@@ -1,4 +1,3 @@
-// <reference types="cypress" />
 
 import Global from "../../pageElements/Global";
 import Checkout from "../../pageElements/Checkout";
@@ -20,7 +19,7 @@ describe("Login functionality", () => {
     cy.homepageValidation();
   });
 
-  // Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-300)
+  // Jira link (https://tdlschool.atlassian.net/browse/TSS22N-300)
   it("Add an item to cart ", () => {
     // navigate to cart page and delete items if already present
     cy.visit("/cart");
@@ -50,7 +49,7 @@ describe("Login functionality", () => {
     Cart.addToCartAndValidate("Medusa T-Shirt");
   });
 
-  // Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-301)
+  // Jira link (https://tdlschool.atlassian.net/browse/TSS22N-301)
   it("Check out item from cart", () => {
     //Go to Cart page
     cy.visit("/cart");
@@ -89,7 +88,7 @@ describe("Login functionality", () => {
     Checkout.placeAndValidateOrder();
   });
 
-  // Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-302)
+  // Jira link (https://tdlschool.atlassian.net/browse/TSS22N-302)
   it("Logs out from webstore", () => {
     cy.visit("/");
     cy.homepageValidation();

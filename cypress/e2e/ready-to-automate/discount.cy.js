@@ -1,6 +1,7 @@
 import Cart from "../../pageElements/Cart";
 import Global from "../../pageElements/Global";
 
+// Jira link (https://tdlschool.atlassian.net/browse/TSS22N-320)
 describe("Apply discount code", function () {
   const EMAIL = Cypress.env("username");
   const PASSWORD = Cypress.env("password");
