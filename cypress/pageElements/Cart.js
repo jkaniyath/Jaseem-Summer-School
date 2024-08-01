@@ -21,7 +21,7 @@ class Cart {
   deleteItemsFromCart() {
     this.elements.cartContainer().then(($body) => {
       if ($body.find('[data-testid="product-row"]').length > 0) {
-        cy.getByTestId("product-row").each(($el, index, $list) => {
+        cy.getByTestId("product-row").each(($el, index, $list) => { // TODO: we only use $el parameter, do we really need 'index' & '$list' here?
           $el.find("button.flex").click(); // To find delete button element in cart item
         });
       }
@@ -47,7 +47,7 @@ class Cart {
     // Select product attributes
     this.elements.productOptions().contains("button", size).click();
 
-    this.elements.optionButton().each(($el, index, $list) => {
+    this.elements.optionButton().each(($el, index, $list) => { // TODO: we only use $el parameter here, do we really need 'index' & '$list'?
       const buttonText = $el.text();
       if (
         buttonText.toLowerCase().trim() === "white" ||
@@ -72,8 +72,8 @@ class Cart {
   }
 
   applyAndValidateDiscount(discountCode) {
-    let amountBeforeDiscount = 0;
-    let amountAfterDiscount = 0;
+    let amountBeforeDiscount = 0; // TODO: you can just define variable with just 'let amountBeforeDiscount;'
+    let amountAfterDiscount = 0; // TODO: you can just define variable with just 'let amountAfterDiscount;'
     const discountPercentage = 0.1;
 
     // If a discount is already applied, remove it
