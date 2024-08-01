@@ -85,8 +85,6 @@ class Cart {
 
     // Click discount button and clear any existing coupon
     this.elements.discountButton().click();
-    this.elements.discountInput().clear();
-
     // Get total amount before discount and proceed with discount application
     this.elements
       .totalAmount()
@@ -104,7 +102,7 @@ class Cart {
         );
 
         // Apply the discount code
-        this.elements.discountInput().type(discountCode);
+        this.elements.discountInput().type(discountCode, { force: true });
         this.elements.discountApplyButton().click();
 
         // Verify that the discount row shows the expected discount

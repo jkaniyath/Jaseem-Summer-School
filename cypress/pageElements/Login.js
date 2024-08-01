@@ -3,6 +3,8 @@ class Login {
     emailInput: () => cy.getByTestId("email-input"),
     passWordInput: () => cy.getByTestId("password-input"),
     signInButton: () => cy.getByTestId("sign-in-button"),
+    errorMessage : () => cy.getByTestId("login-error-message"),
+    loginPage : () => cy.getByTestId("login-page")
   };
 
   fillEmail(email) {
