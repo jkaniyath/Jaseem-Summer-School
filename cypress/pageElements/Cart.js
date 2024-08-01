@@ -1,4 +1,4 @@
-class Cart { 
+class Cart {
   elements = {
     cartContainer: () => cy.getByTestId("cart-container"),
     cartItems: () => cy.getByTestId("product-row"),
@@ -12,10 +12,10 @@ class Cart {
     discountButton: () => cy.getByTestId("add-discount-button"),
     discountInput: () => cy.getByTestId("discount-input"),
     discountApplyButton: () => cy.getByTestId("discount-apply-button"),
-    discountRow : () => cy.getByTestId("discount-row"),
-    discountAmount : () => cy.getByTestId("discount-amount"),
+    discountRow: () => cy.getByTestId("discount-row"),
+    discountAmount: () => cy.getByTestId("discount-amount"),
     removeDiscountButton: () => cy.getByTestId("remove-discount-button"),
-    totalAmount: () => cy.getByTestId("cart-total")
+    totalAmount: () => cy.getByTestId("cart-total"),
   };
 
   deleteItemsFromCart() {
@@ -48,12 +48,14 @@ class Cart {
     this.elements.productOptions().contains("button", size).click();
 
     this.elements.optionButton().each(($el, index, $list) => {
-      const buttonText = $el.text()
-      if((buttonText.toLowerCase().trim() === 'white') || (buttonText.toLowerCase().trim() === 'white')){
+      const buttonText = $el.text();
+      if (
+        buttonText.toLowerCase().trim() === "white" ||
+        buttonText.toLowerCase().trim() === "white"
+      ) {
         this.elements.optionButton().contains("button", color).click();
       }
-    })
-    
+    });
 
     // Validate "Add to cart" button is enabled (It will not be enabled if product is out of stock) after choose product attributes
     this.elements.addToCartButton().should("not.be.disabled");
@@ -72,40 +74,46 @@ class Cart {
   applyAndValidateDiscount(discountCode) {
     let amountBeforeDiscount = 0;
     let amountAfterDiscount = 0;
-    const discountPercentage = 0.10;
-  
+    const discountPercentage = 0.1;
+
     // If a discount is already applied, remove it
     this.elements.cartContainer().then(($body) => {
       if ($body.find('[data-testid="discount-row"]').length > 0) {
         this.elements.removeDiscountButton().click();
       }
     });
-  
+
     // Click discount button and clear any existing coupon
     this.elements.discountButton().click();
     this.elements.discountInput().clear();
-  
-    // Get total amount before discount and proceed with discount application
-    this.elements.totalAmount().invoke('text').then((text) => {
-      // Convert the amount text to a number
-      amountBeforeDiscount = parseFloat(text.replace(/[^0-9.]/g, ''));
-     
-      // Calculate the expected discounted amount
-      const discountValue = (amountBeforeDiscount * discountPercentage).toFixed(2);
-      const discountedAmount = (amountBeforeDiscount - discountValue).toFixed(2);
-  
-      // Apply the discount code
-      this.elements.discountInput().type(discountCode);
-      this.elements.discountApplyButton().click();
-  
-      // Verify that the discount row shows the expected discount
-      this.elements.discountRow().contains('span', '10').should('be.visible');
-  
-      // Verify the total amount after the discount
-      this.elements.totalAmount().should('have.text', `$${discountedAmount}`);
-    });
-  }
 
+    // Get total amount before discount and proceed with discount application
+    this.elements
+      .totalAmount()
+      .invoke("text")
+      .then((text) => {
+        // Convert the amount text to a number
+        amountBeforeDiscount = parseFloat(text.replace(/[^0-9.]/g, ""));
+
+        // Calculate the expected discounted amount
+        const discountValue = (
+          amountBeforeDiscount * discountPercentage
+        ).toFixed(2);
+        const discountedAmount = (amountBeforeDiscount - discountValue).toFixed(
+          2,
+        );
+
+        // Apply the discount code
+        this.elements.discountInput().type(discountCode);
+        this.elements.discountApplyButton().click();
+
+        // Verify that the discount row shows the expected discount
+        this.elements.discountRow().contains("span", "10").should("be.visible");
+
+        // Verify the total amount after the discount
+        this.elements.totalAmount().should("have.text", `$${discountedAmount}`);
+      });
+  }
 }
 
 export default new Cart();

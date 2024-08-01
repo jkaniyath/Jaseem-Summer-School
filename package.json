@@ -5,7 +5,8 @@
   "main": "comments.js",
   "scripts": {
     "format": "npx prettier . --write",
-    "cypress-open": "npx cypress open"
+    "cypress-open": "npx cypress open",
+    "cypress-run" : "npx cypress run"
   },
   "keywords": [
     "cypress",
