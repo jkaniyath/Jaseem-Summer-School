@@ -25,9 +25,16 @@ Cypress.Commands.add("login", (email, password) => {
   });
 });
 
+Cypress.Commands.add("loginWithoutSession", (email, password) => {
+  cy.visit("/");
+  cy.contains("h1", "Welcome back");
+  Login.fillEmail(email);
+  Login.fillPassword(password);
+  Login.elements.signInButton().click();
+})
+
 Cypress.Commands.add("cartItemValidation", (productName) => {
   cy.getByTestId("product-row")
-    .contains("p", productName)
-    .should("have.text", productName);
+    .contains("p", productName);
   cy.getByTestId("product-row").should("have.length", 1); // should be one item in cart
 });

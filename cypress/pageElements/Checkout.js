@@ -39,8 +39,6 @@ class CheckOut {
 
   submitAddressAndValidate() {
     this.elements.submitAddress().click();
-    //cy.getByTestId("submit-address-button").click();
-
     // Validate adress summary is visisble
     this.elements.addressSummary().should("be.visible");
   }
@@ -54,7 +52,7 @@ class CheckOut {
   }
 
   selectAndValidateDelivery(deliveryType) {
-    // to select delivery type and click on it.
+    // To select delivery type and click on it.
     this.elements.deliveryTypeButton().contains("span", deliveryType).click();
 
     // After that "Continue to payment" button should be enabled.

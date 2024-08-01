@@ -2,7 +2,7 @@
 
 import Global from "../../pageElements/Global";
 import Checkout from "../../pageElements/Checkout";
-import AddToCart from "../../pageElements/Cart";
+import Cart from "../../pageElements/Cart";
 import Logout from "../../pageElements/Logout";
 
 
@@ -32,10 +32,10 @@ describe("Login functionality", () => {
     cy.title().should("eq", "Cart");
 
     // Delete items in cart if alreday present.
-    AddToCart.deleteItemsFromCart();
+    Cart.deleteItemsFromCart();
 
     // Validate items are deleted from cart
-    AddToCart.isItemDeleted();
+    Cart.isItemDeleted();
 
     //Go back to home page.
     Global.navigateSideBar.openPage("Home");
@@ -44,13 +44,13 @@ describe("Login functionality", () => {
     cy.homepageValidation();
 
     // To select a product from the homepage and validate that the user chose the correct product.
-    AddToCart.selectItemAndValidate("Medusa T-Shirt");
+    Cart.selectItemAndValidate("Medusa T-Shirt");
 
     // Choose size 'L' and color 'White'
-    AddToCart.selectProductAttributesAndValidate("L", "White");
+    Cart.selectProductAttributesAndValidate("L", "White");
 
     // to add item to cart and validate.
-    AddToCart.addToCartAndValidate("Medusa T-Shirt");
+    Cart.addToCartAndValidate("Medusa T-Shirt");
   });
 
   // Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-301)
