@@ -4,7 +4,8 @@
   "description": "TDL summer school 2024 cypress project",
   "main": "comments.js",
   "scripts": {
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "cypress-open": "npx cypress open"
   },
   "keywords": [
     "cypress",
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^13.13.1",
+    "mochawesome": "^7.1.3",
     "prettier": "^3.3.3"
   }
 }
