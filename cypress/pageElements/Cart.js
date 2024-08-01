@@ -21,7 +21,7 @@ class Cart {
   deleteItemsFromCart() {
     this.elements.cartContainer().then(($body) => {
       if ($body.find('[data-testid="product-row"]').length > 0) {
-        cy.getByTestId("product-row").each(($el, index, $list) => {
+        cy.getByTestId("product-row").each(($el, index, $list) => { // TODO: we only use $el parameter, do we really need 'index' & '$list' here?
           $el.find("button.flex").click(); // To find delete button element in cart item
         });
       }
@@ -47,7 +47,7 @@ class Cart {
     // Select product attributes
     this.elements.productOptions().contains("button", size).click();
 
-    this.elements.optionButton().each(($el, index, $list) => {
+    this.elements.optionButton().each(($el, index, $list) => { // TODO: we only use $el parameter here, do we really need 'index' & '$list'?
       const buttonText = $el.text();
       if (
         buttonText.toLowerCase().trim() === "white" ||
