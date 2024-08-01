@@ -1,6 +1,7 @@
 import Global from "./Global";
 
-class Logout { // since there is no logout page you can move this to global
+class Logout {
+  // since there is no logout page you can move this to global
   elements = {
     logOutButton: () => cy.getByTestId("logout-button"),
     accountPage: () => cy.getByTestId("account-page"),

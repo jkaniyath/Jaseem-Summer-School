@@ -5,25 +5,22 @@ import Checkout from "../../pageElements/Checkout";
 import Cart from "../../pageElements/Cart";
 import Logout from "../../pageElements/Logout";
 
-
-
 describe("Login functionality", () => {
   const EMAIL = Cypress.env("username");
   const PASSWORD = Cypress.env("password");
-
 
   beforeEach(() => {
     cy.login(EMAIL, PASSWORD);
   });
 
   // Jira link (https://tdlschool.atlassian.net/browse/TSS22N-299)
-  it("Login Validation", () => { 
+  it("Login Validation", () => {
     cy.visit("/");
     // after successfull login homepage should open.
     cy.homepageValidation();
   });
-  
-// Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-300)
+
+  // Jira link (https://tdlschool.atlassian.net/jira/software/c/projects/TSS22N/boards/274?assignee=63f335e2e76fc61320f3f3a1&selectedIssue=TSS22N-300)
   it("Add an item to cart ", () => {
     // navigate to cart page and delete items if already present
     cy.visit("/cart");
